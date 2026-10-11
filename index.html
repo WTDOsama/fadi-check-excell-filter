@@ -30,7 +30,7 @@
 </section>
 <div id="app" class="app hidden">
 <aside id="sidebar" class="sidebar">
-<div class="brand"><div class="brand-icon">⛺</div><div><strong>إيواء فاطمة الزهراء</strong><small>إدارة الأسر والمساعدات</small></div></div>
+<div class="brand"><div class="brand-icon"></div><div><strong>إيواء فاطمة الزهراء</strong><small>إدارة الأسر والمساعدات</small></div></div>
 <div class="nav-title">القائمة الرئيسية</div>
 <nav class="nav">
 <button data-page="dashboard" class="active"><span class="ico">▦</span>لوحة التحكم</button>
@@ -85,9 +85,9 @@ return `<div class="page-head"><div><h1>مرحبًا بك في لوحة التح
 <div class="stat"><div class="stat-icon">👦</div><div><small>طفل يراس أسرة</small><strong>${childHeadCount}</strong></div></div>
 </div>
 <section class="panel"><h3>الوصول السريع</h3><div class="quick-actions"><button onclick="openFamily()">＋ إضافة أسرة جديدة</button><button onclick="openAid()">▣ توثيق مساعدة</button><button onclick="go('check')">⌕ فحص المساعدات برقم الهوية</button></div></section>
-<section class="panel"><h3>آخر الأسر المضافة</h3>${recent.length?`<div id="bulkBarDash"></div><div class="table-wrap"><table><thead><tr><th style="width:40px"><input type="checkbox" id="selectAllDash" title="تحديد الكل"></th><th>اسم رب الأسرة</th><th>رقم الهوية</th><th>اسم الزوجة</th><th>رقم هوية الزوجة</th><th>نوع الأسرة</th><th>عدد الأفراد</th><th>رقم الجوال</th><th>عنوان السكن الأصلي</th><th>الإجراءات</th></tr></thead><tbody>${recent.map(f=>`<tr><td><input type="checkbox" class="family-check" data-key="${f.key}"></td><td>${esc(f.name)}</td><td>${esc(f.id)}</td><td>${esc(f.wifeName||'—')}</td><td>${esc(f.wifeId||'—')}</td><td>${esc(f.familyType||'—')}</td><td>${esc(f.members)}</td><td>${esc(f.phone||'—')}</td><td>${esc(f.location||'—')}</td><td><div class="action-btns"><button class="btn-view small" onclick="viewFamilyDetails('${f.key}')" title="عرض التفاصيل">👁 عرض</button><button class="btn-review small" onclick="reviewFamily('${f.key}')" title="إعادة المراجعة">🔄 مراجعة</button><button class="btn-edit small" onclick="openFamily('${f.key}')" title="تعديل">✏ تعديل</button><button class="btn-del small" onclick="deleteFamily('${f.key}')" title="حذف">🗑 حذف</button></div></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">لا توجد أسر مسجلة بعد. ابدأ بإضافة أول أسرة.</div>'}</section><div class="footer-note">تنبيه: البيانات تحفظ في مساحة التخزين المحلية لهذا المتصفح فقط. هذه النسخة لا تزامن البيانات بين الأجهزة ولا تُعد بديلًا عن قاعدة بيانات آمنة.</div>`}
+<section class="panel"><h3>آخر الأسر المضافة</h3>${recent.length?`<div id="bulkBarDash"></div><div class="table-wrap"><table><thead><tr><th style="width:40px"><input type="checkbox" id="selectAllDash" title="تحديد الكل"></th><th>اسم رب الأسرة</th><th>رقم الهوية</th><th>اسم الزوجة</th><th>رقم هوية الزوجة</th><th>نوع الأسرة</th><th>عدد الأفراد</th><th>رقم الجوال</th><th>عنوان السكن الأصلي</th><th>الإجراءات</th></tr></thead><tbody>${recent.map(f=>`<tr><td><input type="checkbox" class="family-check" data-key="${f.key}"></td><td>${esc(f.name)}</td><td>${esc(f.id)}</td><td>${esc(f.wifeName||'—')}</td><td>${esc(f.wifeId||'—')}</td><td>${esc(f.familyType||'—')}</td><td>${esc(f.members)}</td><td>${esc(f.phone||'—')}</td><td>${esc(f.location||'—')}</td><td><div class="action-btns"><button class="btn-view small" onclick="viewFamilyDetails('${f.key}')" title="عرض التفاصيل">👁 عرض</button><button class="btn-review small" onclick="reviewFamily('${f.key}')" title="إعادة المراجعة"> مراجعة</button><button class="btn-edit small" onclick="openFamily('${f.key}')" title="تعديل">✏ تعديل</button><button class="btn-del small" onclick="deleteFamily('${f.key}')" title="حذف">🗑 حذف</button></div></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">لا توجد أسر مسجلة بعد. ابدأ بإضافة أول أسرة.</div>'}</section><div class="footer-note">تنبيه: البيانات تحفظ في مساحة التخزين المحلية لهذا المتصفح فقط. هذه النسخة لا تزامن البيانات بين الأجهزة ولا تُعد بديلًا عن قاعدة بيانات آمنة.</div>`}
 
-function familyPage(){return `<div class="page-head"><div><h1>أرشيف الأسر</h1><p>إضافة بيانات الأسرة يدويًا أو رفع كشف Excel، ثم البحث والتعديل والحذف.</p></div><button onclick="openFamily()">＋ إضافة أسرة</button></div><section class="upload-box"><h3 style="margin:0 0 5px">⬆ رفع كشف الأسر</h3><div class="upload-help">ارفع ملف Excel بصيغة .xlsx أو .xls أو ملف CSV. يجب أن يحتوي على عمود اسم الأسرة ورقم الهوية. يمكن أن يحتوي أيضًا على اسم الزوجة، هوية الزوجة، نوع الأسرة، عدد الأفراد، عنوان السكن الأصلي ورقم الجوال.</div><input type="file" id="familyUpload" accept=".xlsx,.xls,.csv"><button id="uploadBtn">استيراد الكشف</button><div id="uploadResult"></div></section><div class="toolbar"><input class="search" id="familySearch" placeholder="ابحث بالاسم أو الهوية أو اسم الزوجة أو نوع الأسرة أو عنوان السكن..."><button class="secondary" onclick="exportFamilies()">تصدير CSV لبرنامج Excel</button><button class="secondary" onclick="exportFamiliesExcel()">⬇ تصدير Excel (xlsx)</button></div><div id="bulkBarFam"></div><div id="familyTable">${familyTable('')}</div>`}
+function familyPage(){return `<div class="page-head"><div><h1>أرشيف الأسر</h1><p>إضافة بيانات الأسرة يدويًا أو رفع كشف Excel، ثم البحث والتعديل والحذف.</p></div><button onclick="openFamily()">＋ إضافة أسرة</button></div><section class="upload-box"><h3 style="margin:0 0 5px">⬆ رفع كشف الأسر</h3><div class="upload-help">ارفع ملف Excel بصيغة .xlsx أو .xls أو ملف CSV. يجب أن يحتوي على عمود اسم الأسرة ورقم الهوية. يمكن أن يحتوي أيضًا على اسم الزوجة، هوية الزوجة، نوع الأسرة، عدد الأفراد، عنوان السكن الأصلي ورقم الجوال.</div><input type="file" id="familyUpload" accept=".xlsx,.xls,.csv"><button id="uploadBtn">استيراد الكشف</button><div id="uploadResult"></div></section><div class="toolbar"><input class="search" id="familySearch" placeholder="ابحث بالاسم أو الهوية أو اسم الزوجة أو نوع الأسرة أو عنوان السكن..."><button class="secondary" onclick="exportFamilies()">تصدير CSV لبرنامج Excel</button><button class="secondary" onclick="exportFamiliesExcel()"> تصدير Excel (xlsx)</button></div><div id="bulkBarFam"></div><div id="familyTable">${familyTable('')}</div>`}
 
 function familyTable(q){let arr=families.filter(f=>(f.name+' '+f.id+' '+f.wifeName+' '+f.wifeId+' '+f.familyType+' '+f.location+' '+f.phone).toLowerCase().includes(q.toLowerCase()));if(!arr.length)return '<div class="panel empty">لا توجد نتائج مطابقة.</div>';return `<div class="table-wrap"><table><thead><tr><th style="width:40px"><input type="checkbox" id="selectAllFam" title="تحديد الكل"></th><th>اسم رب الأسرة</th><th>رقم الهوية</th><th>اسم الزوجة</th><th>رقم هوية الزوجة</th><th>نوع الأسرة</th><th>عدد الأفراد</th><th>رقم الجوال</th><th>عنوان السكن الأصلي</th><th>الإجراءات</th></tr></thead><tbody>${arr.map(f=>`<tr><td><input type="checkbox" class="family-check" data-key="${f.key}"></td><td>${esc(f.name)}</td><td>${esc(f.id)}</td><td>${esc(f.wifeName||'—')}</td><td>${esc(f.wifeId||'—')}</td><td>${esc(f.familyType||'—')}</td><td>${esc(f.members)}</td><td>${esc(f.phone||'—')}</td><td>${esc(f.location||'—')}</td><td><div class="action-btns"><button class="btn-view small" onclick="viewFamilyDetails('${f.key}')" title="عرض التفاصيل">👁 عرض</button><button class="btn-review small" onclick="reviewFamily('${f.key}')" title="إعادة المراجعة">🔄 مراجعة</button><button class="btn-edit small" onclick="openFamily('${f.key}')" title="تعديل">✏ تعديل</button><button class="btn-del small" onclick="deleteFamily('${f.key}')" title="حذف">🗑 حذف</button></div></td></tr>`).join('')}</tbody></table></div>`}
 
@@ -189,21 +189,21 @@ save();
 render(currentPage);
 }
 
-/* ✅ تحسين دالة normalizeHeader لإزالة جميع التشكيلات والمسافات */
+/* ✅ تحسين دالة normalizeHeader */
 function normalizeHeader(v){
   return String(v||'')
     .trim()
     .toLowerCase()
-    .replace(/[\u064B-\u065F\u0670]/g,'') // إزالة التشكيل
-    .replace(/[أإآا]/g,'ا')              // توحيد الألف
-    .replace(/[ىي]/g,'ي')                // توحيد الياء
-    .replace(/[ةه]/g,'ه')                // توحيد التاء المربوطة
-    .replace(/[\s_ـ\-\.\,\:\/\\]/g,'');  // إزالة المسافات والرموز
+    .replace(/[\u064B-\u065F\u0670]/g,'')
+    .replace(/[أإآا]/g,'ا')
+    .replace(/[ىي]/g,'ي')
+    .replace(/[ةه]/g,'ه')
+    .replace(/[\s_ـ\-\.\,\:\/\\]/g,'');
 }
 
-/* ✅ تحسين دالة findCell للبحث بطريقة أكثر مرونة */
+/* ✅ تحسين دالة findCell للبحث الذكي */
 function findCell(row,keys){
-  // أولاً: البحث عن تطابق تام بعد التطبيع
+  // أولاً: البحث عن تطابق تام
   for(const [k,v] of Object.entries(row)){
     const h=normalizeHeader(k);
     for(const key of keys){
@@ -211,7 +211,7 @@ function findCell(row,keys){
       if(h===nk) return v;
     }
   }
-  // ثانياً: البحث عن تطابق جزئي (يحتوي على)
+  // ثانياً: البحث عن تطابق جزئي
   for(const [k,v] of Object.entries(row)){
     const h=normalizeHeader(k);
     for(const key of keys){
@@ -222,11 +222,66 @@ function findCell(row,keys){
   return '';
 }
 
-/* ✅ تحسين دالة uploadFamilies مع توسيع قائمة المرادفات */
+/* ✅ دالة ذكية للبحث عن عمود عدد الأفراد بأي اسم */
+function findMembersColumn(row){
+  // قائمة شاملة جداً بكل الأسماء المحتملة
+  const memberKeys = [
+    'عدد الأفراد','عدد افراد الأسرة','عدد افراد الاسرة','عدد افراد الاسره',
+    'عدد أفراد الأسرة','عدد افراد الاسره','عدد افراد العائله',
+    'عدد الاعضاء','عدد الأعضاء','عدد اعضاء الأسرة',
+    'العدد','عدد','عدد الاشخاص','عدد الأشخاص',
+    'عدد افراد','عدد أفراد','عدد الأفراد الكلي',
+    'عدد افراد العائله','عدد أفراد العائلة','عدد افراد العائلة',
+    'عدد افراد العائله','members','family_size','family members',
+    'no of members','number of members','num members',
+    'افراد','أفراد','الاعضاء','الأعضاء'
+  ];
+  
+  // البحث بالطريقة العادية أولاً
+  const result = findCell(row, memberKeys);
+  if(result !== '') return result;
+  
+  // البحث الذكي: أي عمود يحتوي على كلمة "عدد" أو "افراد" أو "members"
+  for(const [k,v] of Object.entries(row)){
+    const h = normalizeHeader(k);
+    const lowerK = String(k).toLowerCase();
+    if(h.includes('عدد') || h.includes('افراد') || h.includes('أفراد') || 
+       h.includes('members') || h.includes('اعضاء') || h.includes('أعضاء') ||
+       lowerK.includes('members') || lowerK.includes('family')){
+      return v;
+    }
+  }
+  
+  return '';
+}
+
+/* ✅ دالة معالجة رقم الأفراد بشكل صحيح */
+function parseMembersValue(raw){
+  if(raw === '' || raw === null || raw === undefined) return '1';
+  
+  // تحويل إلى نص
+  let str = String(raw).trim();
+  
+  // إزالة النقطة العشرية إذا كانت .0 (مثل 5.0 → 5)
+  str = str.replace(/\.0+$/,'');
+  
+  // استخراج الأرقام فقط
+  const digits = str.replace(/[^\d]/g,'');
+  
+  if(!digits) return '1';
+  
+  const num = parseInt(digits, 10);
+  if(isNaN(num) || num < 1) return '1';
+  
+  return String(num);
+}
+
+/* ✅ دالة uploadFamilies المحسّنة */
 async function uploadFamilies(){
   const file=$('#familyUpload')?.files?.[0],out=$('#uploadResult');
   if(!file){out.innerHTML=showNotice('اختر ملف كشف الأسر أولًا.','error');return}
   if(!window.XLSX&&/\.(xlsx|xls)$/i.test(file.name)){out.innerHTML=showNotice('تعذر تحميل أداة قراءة Excel. تحقق من اتصال الإنترنت ثم أعد المحاولة، أو ارفع CSV.','error');return}
+  
   try{
     let rows=[];
     if(/\.csv$/i.test(file.name)){
@@ -240,18 +295,22 @@ async function uploadFamilies(){
     }
     if(!rows.length){out.innerHTML=showNotice('الملف لا يحتوي على صفوف بيانات.','error');return}
     
-    let added=0,updated=0,skipped=0;
+    // 🔍 عرض أسماء الأعمدة الفعلية في الملف (للتشخيص)
+    const actualHeaders = Object.keys(rows[0]);
+    console.log('📋 أسماء الأعمدة الفعلية في الملف:', actualHeaders);
+    
+    let added=0,updated=0,skipped=0,membersFixed=0;
+    
     for(const r of rows){
-      // ✅ توسيع قائمة المرادفات لكل عمود
       const name=String(findCell(r,[
         'اسم رب الأسرة','اسم رب الاسرة','اسم رب الاسره',
         'اسم الأسرة','اسم الاسرة','اسم الاسره',
-        'الاسم','اسم','اسم رب الاسره'
+        'الاسم','اسم'
       ])||'').trim();
       
       const id=String(findCell(r,[
         'هوية رب الأسرة','هوية رب الاسرة','هوية رب الاسره',
-        'رقم هوية رب الأسرة','رقم هوية رب الاسرة','رقم هوية رب الاسره',
+        'رقم هوية رب الأسرة','رقم هوية رب الاسرة',
         'رقم الهوية','هوية الزوج','الهوية','رقم الهويه','هويه'
       ])||'').trim().replace(/\.0$/,'');
       
@@ -262,11 +321,10 @@ async function uploadFamilies(){
       
       const wifeId=String(findCell(r,[
         'هوية الزوجة','هوية الزوجه','هوية الزوجيه',
-        'رقم هوية الزوجة','رقم هوية الزوجه','رقم هوية الزوجيه',
+        'رقم هوية الزوجة','رقم هوية الزوجه',
         'هويه الزوجه','رقم هويه الزوجه'
       ])||'').trim().replace(/\.0$/,'');
       
-      // ✅ توسيع كبير لقائمة "نوع الأسرة" لتشمل جميع الاحتمالات
       const familyType=String(findCell(r,[
         'نوع الأسرة','نوع الاسرة','نوع الاسره',
         'تصنيف الأسرة','تصنيف الاسرة','تصنيف الاسره',
@@ -276,25 +334,12 @@ async function uploadFamilies(){
         'النوع','الفئه','الفئة','التصنيف','الحاله','الحالة'
       ])||'').trim();
       
-      // ✅ توسيع كبير لقائمة "عدد الأفراد" - المشكلة الرئيسية
-      const membersRaw=findCell(r,[
-        'عدد الأفراد','عدد الافراد','عدد الافراده',
-        'عدد افراد الأسرة','عدد افراد الاسرة','عدد افراد الاسره',
-        'عدد أفراد الأسرة','عدد افراد الاسره',
-        'عدد الاعضاء','عدد الأعضاء','عدد اعضاء الأسرة','عدد اعضاء الاسره',
-        'العدد','عدد','عدد الاشخاص','عدد الأشخاص','عدد الاشخاص',
-        'عدد افراد','عدد أفراد','عدد الأفراد الكلي','عدد افراد الكلي',
-        'عدد افراد العائله','عدد أفراد العائلة','عدد افراد العائلة'
-      ]);
+      // ✅ استخدام الدالة الذكية للبحث عن عدد الأفراد
+      const membersRaw = findMembersColumn(r);
+      const members = parseMembersValue(membersRaw);
       
-      // ✅ معالجة ذكية لعدد الأفراد
-      let members='1';
-      if(membersRaw!=='' && membersRaw!==null && membersRaw!==undefined){
-        const parsed=parseInt(String(membersRaw).replace(/[^\d]/g,''),10);
-        if(!isNaN(parsed) && parsed>0){
-          members=String(parsed);
-        }
-      }
+      // تتبع إذا تم إصلاح العدد
+      if(membersRaw !== '' && members !== '1') membersFixed++;
       
       const location=String(findCell(r,[
         'عنوان السكن الأصلي','عنوان السكن الاصلي','عنوان السكن الاصلى',
@@ -303,8 +348,7 @@ async function uploadFamilies(){
       ])||'').trim();
       
       const phone=String(findCell(r,[
-        'رقم الجوال','رقم الجوال','رقم الجوال',
-        'الجوال','الهاتف','رقم الهاتف','رقم التلفون',
+        'رقم الجوال','الجوال','الهاتف','رقم الهاتف','رقم التلفون',
         'جوال','هاتف','موبايل','رقم الموبايل','التلفون'
       ])||'').trim();
       
@@ -313,8 +357,7 @@ async function uploadFamilies(){
       const existing=families.find(f=>f.id===id||(wifeId&&f.wifeId===wifeId));
       if(existing){
         Object.assign(existing,{
-          name,
-          id,
+          name,id,
           wifeName:wifeName||existing.wifeName,
           wifeId:wifeId||existing.wifeId,
           familyType:familyType||existing.familyType,
@@ -334,27 +377,28 @@ async function uploadFamilies(){
     save();
     $('#familyTable').innerHTML=familyTable($('#familySearch')?.value||'');
     
-    // ✅ رسالة توضيحية مفصلة
+    // ✅ رسالة مفصلة مع إحصائيات
     let msg=`✅ اكتمل الاستيراد بنجاح:\n`;
     msg+=`• تمت إضافة ${added} أسرة جديدة\n`;
     msg+=`• تم تحديث ${updated} أسرة موجودة\n`;
     if(skipped>0) msg+=`• تم تجاوز ${skipped} صف (لا يوجد اسم أو رقم هوية)\n`;
-    msg+=`\n📊 الإحصائيات الحالية:\n`;
+    msg+=`\n📊 تفاصيل عدد الأفراد:\n`;
+    msg+=`• تم قراءة عدد الأفراد من ${membersFixed} أسرة بنجاح\n`;
+    msg+=`• إجمالي الأفراد: ${families.reduce((s,f)=>s+(+f.members||0),0)}\n`;
+    msg+=`\n📋 الإحصائيات الحالية:\n`;
     msg+=`• عدد الأسر الأرمال: ${families.filter(f=>(f.familyType||'').includes('أرملة')).length}\n`;
     msg+=`• عدد الأسر المطلقة: ${families.filter(f=>(f.familyType||'').includes('مطلقة')).length}\n`;
-    msg+=`• طفل يراس أسرة: ${families.filter(f=>(f.familyType||'').includes('طفل')).length}\n`;
-    msg+=`• إجمالي الأفراد: ${families.reduce((s,f)=>s+(+f.members||0),0)}`;
+    msg+=`• طفل يراس أسرة: ${families.filter(f=>(f.familyType||'').includes('طفل')).length}`;
     
     out.innerHTML=showNotice(msg);
     $('#familyUpload').value='';
     bindBulkActions();
     
-    // تحديث لوحة التحكم إذا كنا فيها
     if(currentPage==='dashboard') render('dashboard');
     
   }catch(err){
-    console.error(err);
-    out.innerHTML=showNotice('تعذر قراءة الملف. تأكد أن الصف الأول يحتوي على عناوين الأعمدة وأن الملف غير تالف.','error');
+    console.error('خطأ في قراءة الملف:', err);
+    out.innerHTML=showNotice('تعذر قراءة الملف. تأكد أن الصف الأول يحتوي على عناوين الأعمدة وأن الملف غير تالف. الخطأ: '+err.message,'error');
   }
 }
 
