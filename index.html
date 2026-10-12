@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>إيواء فاطمة الزهراء | إدارة الأسر والمساعدات</title>
 
-<!-- ✅ إضافة خط Tajawal من Google Fonts -->
+<!-- ✅ تحميل خط Tajawal من Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-<!-- ✅ أيقونة المتصفح (Favicon) بتصميم SVG -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23194d3e'/%3E%3Cpath d='M50 20 L75 45 L75 75 L25 75 L25 45 Z' fill='%23e7f1e9'/%3E%3Cpath d='M50 20 L75 45 L75 75 L25 75 L25 45 Z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M35 55 Q35 45 45 45 Q55 45 55 55 Q55 65 45 70 L45 75 L35 75 Z' fill='%23286b54'/%3E%3Cpath d='M55 55 Q55 45 65 45 Q75 45 75 55 Q75 65 65 70 L65 75 L55 75 Z' fill='%23286b54'/%3E%3Cpath d='M20 60 Q15 50 20 40 Q25 35 30 40' fill='none' stroke='%23d9b76b' stroke-width='2'/%3E%3Cpath d='M80 60 Q85 50 80 40 Q75 35 70 40' fill='none' stroke='%23d9b76b' stroke-width='2'/%3E%3C/svg%3E">
+<!-- ✅ الأيقونة كـ Favicon للمتصفح -->
+<link rel="icon" type="image/png" href="icon.png">
+<link rel="shortcut icon" type="image/png" href="icon.png">
 
-<!-- ✅ أيقونة للأجهزة المحمولة (Apple Touch Icon) -->
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23194d3e'/%3E%3Cpath d='M50 20 L75 45 L75 75 L25 75 L25 45 Z' fill='%23e7f1e9'/%3E%3Cpath d='M35 55 Q35 45 45 45 Q55 45 55 55 Q55 65 45 70 L45 75 L35 75 Z' fill='%23286b54'/%3E%3Cpath d='M55 55 Q55 45 65 45 Q75 45 75 55 Q75 65 65 70 L65 75 L55 75 Z' fill='%23286b54'/%3E%3C/svg%3E">
+<!-- ✅ أيقونة للأجهزة المحمولة (Apple) -->
+<link rel="apple-touch-icon" href="icon.png">
 
 <style>
 /* ✅ استخدام خط Tajawal مع تحسين الأحجام */
@@ -38,7 +39,7 @@ body{
   font-family:var(--font-family);
   background:var(--cream);
   color:var(--ink);
-  font-size:15px; /* ✅ تكبير الخط الأساسي */
+  font-size:15px;
   line-height:1.7;
 }
 button,input,select,textarea{font:inherit}
@@ -51,9 +52,26 @@ button.small{padding:7px 10px;font-size:13px}
 
 .login-screen{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,#143b31,#286b54)}
 .login-card{width:min(440px,100%);background:white;border-radius:24px;padding:28px;box-shadow:0 25px 80px #081e1680}
-.logo{width:60px;height:60px;display:grid;place-items:center;background:#e3eee2;border-radius:18px;font-size:30px}
-.login-card h1{margin:15px 0 7px;font-size:26px;color:var(--green);font-weight:800}
-.sub{color:var(--muted);font-size:14px;line-height:1.8}
+
+/* ✅ تحسين حجم وشكل الأيقونة في صفحة الدخول */
+.logo{
+  width:110px;
+  height:110px;
+  display:grid;
+  place-items:center;
+  background:#e3eee2;
+  border-radius:50%;
+  margin:0 auto;
+  overflow:hidden;
+}
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.login-card h1{margin:15px 0 7px;font-size:28px;color:var(--green);font-weight:800;text-align:center}
+.sub{color:var(--muted);font-size:14px;line-height:1.8;text-align:center}
 
 .field{display:grid;gap:7px;margin:13px 0}
 .field label{font-weight:700;font-size:14px}
@@ -63,12 +81,31 @@ button.small{padding:7px 10px;font-size:13px}
 }
 .field input:focus,.field select:focus,.field textarea:focus,.search:focus{border-color:var(--green2);box-shadow:0 0 0 3px #286b5417}
 .login-card button{width:100%;margin-top:10px}
-.login-note{margin-top:15px;font-size:12px;color:#8a958e;line-height:1.7}
+.login-note{margin-top:15px;font-size:12px;color:#8a958e;line-height:1.7;text-align:center}
 
 .app{display:grid;grid-template-columns:255px 1fr;min-height:100vh}
 .sidebar{background:var(--green);color:#fff;padding:22px 15px;display:flex;flex-direction:column;gap:18px}
 .brand{display:flex;align-items:center;gap:11px;padding:5px 7px 18px;border-bottom:1px solid #ffffff26}
-.brand-icon{background:#dbe9d8;color:var(--green);border-radius:13px;width:45px;height:45px;display:grid;place-items:center;font-size:24px}
+
+/* ✅ تحسين حجم الأيقونة في الشريط الجانبي */
+.brand-icon{
+  background:#dbe9d8;
+  color:var(--green);
+  border-radius:13px;
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.brand-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
 .brand strong{display:block;font-size:16px;font-weight:800}
 .brand small{display:block;color:#c7ddd0;font-size:12px;margin-top:5px}
 .nav-title{font-size:12px;color:#b7d0c1;padding:0 10px;font-weight:700}
@@ -86,7 +123,7 @@ button.small{padding:7px 10px;font-size:13px}
 
 .content{padding:26px;max-width:1400px;margin:auto}
 .page-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
-.page-head h1{font-size:26px;margin:0 0 7px;font-weight:800}
+.page-head h1{font-size:27px;margin:0 0 7px;font-weight:800}
 .page-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
 
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:22px}
@@ -94,7 +131,7 @@ button.small{padding:7px 10px;font-size:13px}
 .stat{padding:19px;display:flex;gap:14px;align-items:center}
 .stat-icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--mint)}
 .stat small{display:block;color:var(--muted);font-size:13px;font-weight:500}
-.stat strong{display:block;font-size:26px;margin-top:6px;font-weight:800}
+.stat strong{display:block;font-size:27px;margin-top:6px;font-weight:800}
 
 .panel{padding:20px;margin-bottom:18px}
 .panel h3{margin:0 0 16px;font-size:17px;font-weight:800}
@@ -183,7 +220,10 @@ tr:last-child td{border-bottom:0}
 <body>
 <section id="loginScreen" class="login-screen">
 <form id="loginForm" class="login-card">
-<div class="logo"></div>
+<!-- ✅ استخدام الأيقونة في صفحة تسجيل الدخول -->
+<div class="logo">
+  <img src="icon.png" alt="إيواء فاطمة الزهراء">
+</div>
 <h1>إيواء فاطمة الزهراء</h1>
 <div class="sub">نظام إدارة وأرشفة الأسر والمساعدات<br>بوابة الدخول للموظفين والإدارة</div>
 <div class="field"><label for="username">اسم المستخدم</label><input id="username" autocomplete="username" required placeholder="اسم المستخدم"></div>
@@ -195,7 +235,13 @@ tr:last-child td{border-bottom:0}
 </section>
 <div id="app" class="app hidden">
 <aside id="sidebar" class="sidebar">
-<div class="brand"><div class="brand-icon">🏠</div><div><strong>إيواء فاطمة الزهراء</strong><small>إدارة الأسر والمساعدات</small></div></div>
+<div class="brand">
+  <!-- ✅ استخدام الأيقونة في الشريط الجانبي -->
+  <div class="brand-icon">
+    <img src="icon.png" alt="Logo">
+  </div>
+  <div><strong>إيواء فاطمة الزهراء</strong><small>إدارة الأسر والمساعدات</small></div>
+</div>
 <div class="nav-title">القائمة الرئيسية</div>
 <nav class="nav">
 <button data-page="dashboard" class="active"><span class="ico">▦</span>لوحة التحكم</button>
@@ -240,19 +286,19 @@ const recent=families.slice(-10).reverse();
 return `<div class="page-head"><div><h1>مرحبًا بك في لوحة التحكم</h1><p>تابع الأسر المسجلة والمساعدات المقدمة من مكان واحد.</p></div><button onclick="openFamily()">＋ تسجيل أسرة</button></div>
 <div class="stats">
 <div class="stat"><div class="stat-icon">♙</div><div><small>الأسر المسجلة</small><strong>${families.length}</strong></div></div>
-<div class="stat"><div class="stat-icon">⌂</div><div><small>إجمالي أفراد الأسر</small><strong>${people}</strong></div></div>
+<div class="stat"><div class="stat-icon"></div><div><small>إجمالي أفراد الأسر</small><strong>${people}</strong></div></div>
 <div class="stat"><div class="stat-icon">▣</div><div><small>سجلات المساعدات</small><strong>${aids.length}</strong></div></div>
 <div class="stat"><div class="stat-icon">✓</div><div><small>الأسر التي لها مساعدات</small><strong>${new Set(aids.map(a=>a.familyId)).size}</strong></div></div>
 </div>
 <div class="stats">
-<div class="stat"><div class="stat-icon"></div><div><small>عدد الأسر الأرمال</small><strong>${widowCount}</strong></div></div>
+<div class="stat"><div class="stat-icon">👵</div><div><small>عدد الأسر الأرمال</small><strong>${widowCount}</strong></div></div>
 <div class="stat"><div class="stat-icon">👩</div><div><small>عدد الأسر المطلقة</small><strong>${divorcedCount}</strong></div></div>
 <div class="stat"><div class="stat-icon">👦</div><div><small>طفل يراس أسرة</small><strong>${childHeadCount}</strong></div></div>
 </div>
 <section class="panel"><h3>الوصول السريع</h3><div class="quick-actions"><button onclick="openFamily()">＋ إضافة أسرة جديدة</button><button onclick="openAid()">▣ توثيق مساعدة</button><button onclick="go('check')">⌕ فحص المساعدات برقم الهوية</button></div></section>
 <section class="panel"><h3>آخر الأسر المضافة</h3>${recent.length?`<div id="bulkBarDash"></div><div class="table-wrap"><table><thead><tr><th style="width:40px"><input type="checkbox" id="selectAllDash" title="تحديد الكل"></th><th>اسم رب الأسرة</th><th>رقم الهوية</th><th>اسم الزوجة</th><th>رقم هوية الزوجة</th><th>نوع الأسرة</th><th>عدد الأفراد</th><th>رقم الجوال</th><th>عنوان السكن الأصلي</th><th>الإجراءات</th></tr></thead><tbody>${recent.map(f=>`<tr><td><input type="checkbox" class="family-check" data-key="${f.key}"></td><td>${esc(f.name)}</td><td>${esc(f.id)}</td><td>${esc(f.wifeName||'—')}</td><td>${esc(f.wifeId||'—')}</td><td>${esc(f.familyType||'—')}</td><td>${esc(f.members)}</td><td>${esc(f.phone||'—')}</td><td>${esc(f.location||'—')}</td><td><div class="action-btns"><button class="btn-view small" onclick="viewFamilyDetails('${f.key}')" title="عرض التفاصيل">👁 عرض</button><button class="btn-review small" onclick="reviewFamily('${f.key}')" title="إعادة المراجعة">🔄 مراجعة</button><button class="btn-edit small" onclick="openFamily('${f.key}')" title="تعديل">✏ تعديل</button><button class="btn-del small" onclick="deleteFamily('${f.key}')" title="حذف">🗑 حذف</button></div></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">لا توجد أسر مسجلة بعد. ابدأ بإضافة أول أسرة.</div>'}</section><div class="footer-note">تنبيه: البيانات تحفظ في مساحة التخزين المحلية لهذا المتصفح فقط. هذه النسخة لا تزامن البيانات بين الأجهزة ولا تُعد بديلًا عن قاعدة بيانات آمنة.</div>`}
 
-function familyPage(){return `<div class="page-head"><div><h1>أرشيف الأسر</h1><p>إضافة بيانات الأسرة يدويًا أو رفع كشف Excel، ثم البحث والتعديل والحذف.</p></div><button onclick="openFamily()">＋ إضافة أسرة</button></div><section class="upload-box"><h3 style="margin:0 0 5px"> رفع كشف الأسر</h3><div class="upload-help">ارفع ملف Excel بصيغة .xlsx أو .xls أو ملف CSV. يجب أن يحتوي على عمود اسم الأسرة ورقم الهوية. يمكن أن يحتوي أيضًا على اسم الزوجة، هوية الزوجة، نوع الأسرة، عدد الأفراد، عنوان السكن الأصلي ورقم الجوال.</div><input type="file" id="familyUpload" accept=".xlsx,.xls,.csv"><button id="uploadBtn">استيراد الكشف</button><div id="uploadResult"></div></section><div class="toolbar"><input class="search" id="familySearch" placeholder="ابحث بالاسم أو الهوية أو اسم الزوجة أو نوع الأسرة أو عنوان السكن..."><button class="secondary" onclick="exportFamilies()">تصدير CSV لبرنامج Excel</button><button class="secondary" onclick="exportFamiliesExcel()">⬇ تصدير Excel (xlsx)</button></div><div id="bulkBarFam"></div><div id="familyTable">${familyTable('')}</div>`}
+function familyPage(){return `<div class="page-head"><div><h1>أرشيف الأسر</h1><p>إضافة بيانات الأسرة يدويًا أو رفع كشف Excel، ثم البحث والتعديل والحذف.</p></div><button onclick="openFamily()">＋ إضافة أسرة</button></div><section class="upload-box"><h3 style="margin:0 0 5px">⬆ رفع كشف الأسر</h3><div class="upload-help">ارفع ملف Excel بصيغة .xlsx أو .xls أو ملف CSV. يجب أن يحتوي على عمود اسم الأسرة ورقم الهوية. يمكن أن يحتوي أيضًا على اسم الزوجة، هوية الزوجة، نوع الأسرة، عدد الأفراد، عنوان السكن الأصلي ورقم الجوال.</div><input type="file" id="familyUpload" accept=".xlsx,.xls,.csv"><button id="uploadBtn">استيراد الكشف</button><div id="uploadResult"></div></section><div class="toolbar"><input class="search" id="familySearch" placeholder="ابحث بالاسم أو الهوية أو اسم الزوجة أو نوع الأسرة أو عنوان السكن..."><button class="secondary" onclick="exportFamilies()">تصدير CSV لبرنامج Excel</button><button class="secondary" onclick="exportFamiliesExcel()"> تصدير Excel (xlsx)</button></div><div id="bulkBarFam"></div><div id="familyTable">${familyTable('')}</div>`}
 
 function familyTable(q){let arr=families.filter(f=>(f.name+' '+f.id+' '+f.wifeName+' '+f.wifeId+' '+f.familyType+' '+f.location+' '+f.phone).toLowerCase().includes(q.toLowerCase()));if(!arr.length)return '<div class="panel empty">لا توجد نتائج مطابقة.</div>';return `<div class="table-wrap"><table><thead><tr><th style="width:40px"><input type="checkbox" id="selectAllFam" title="تحديد الكل"></th><th>اسم رب الأسرة</th><th>رقم الهوية</th><th>اسم الزوجة</th><th>رقم هوية الزوجة</th><th>نوع الأسرة</th><th>عدد الأفراد</th><th>رقم الجوال</th><th>عنوان السكن الأصلي</th><th>الإجراءات</th></tr></thead><tbody>${arr.map(f=>`<tr><td><input type="checkbox" class="family-check" data-key="${f.key}"></td><td>${esc(f.name)}</td><td>${esc(f.id)}</td><td>${esc(f.wifeName||'—')}</td><td>${esc(f.wifeId||'—')}</td><td>${esc(f.familyType||'—')}</td><td>${esc(f.members)}</td><td>${esc(f.phone||'—')}</td><td>${esc(f.location||'—')}</td><td><div class="action-btns"><button class="btn-view small" onclick="viewFamilyDetails('${f.key}')" title="عرض التفاصيل">👁 عرض</button><button class="btn-review small" onclick="reviewFamily('${f.key}')" title="إعادة المراجعة">🔄 مراجعة</button><button class="btn-edit small" onclick="openFamily('${f.key}')" title="تعديل">✏ تعديل</button><button class="btn-del small" onclick="deleteFamily('${f.key}')" title="حذف">🗑 حذف</button></div></td></tr>`).join('')}</tbody></table></div>`}
 
@@ -278,7 +324,7 @@ function viewFamilyDetails(key){
 const f=families.find(x=>x.key===key);
 if(!f){alert('الأسرة غير موجودة');return}
 const aidsCount=aids.filter(a=>a.familyId===f.key).length;
-openModal(`📋 تفاصيل الأسرة: ${f.name}`,`
+openModal(` تفاصيل الأسرة: ${f.name}`,`
 <div class="result-grid" style="margin-bottom:15px">
 <div><small>اسم رب الأسرة</small><strong>${esc(f.name)}</strong></div>
 <div><small>هوية رب الأسرة</small><strong>${esc(f.id)}</strong></div>
@@ -401,12 +447,42 @@ rows=XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:''});
 if(!rows.length){out.innerHTML=showNotice('الملف لا يحتوي على صفوف بيانات.','error');return}
 let added=0,updated=0,skipped=0;
 for(const r of rows){
-const name=String(findCell(r,['اسم رب الأسرة','اسم رب الاسرة','اسم رب الاسره','اسم الأسرة','اسم الاسرة','اسم الاسره','الاسم','اسم'])||'').trim();
-const id=String(findCell(r,['هوية رب الأسرة','هوية رب الاسرة','هوية رب الاسره','رقم هوية رب الأسرة','رقم هوية رب الاسرة','رقم هوية رب الاسره','رقم الهوية','هوية الزوج','الهوية','رقم الهويه','هويه'])||'').trim().replace(/\.0$/,'');
-const wifeName=String(findCell(r,['اسم الزوجة','اسم الزوجه','اسم الزوجيه','زوجة رب الأسرة','زوجه رب الاسره','زوجة'])||'').trim();
-const wifeId=String(findCell(r,['هوية الزوجة','هوية الزوجه','هوية الزوجيه','رقم هوية الزوجة','رقم هوية الزوجه','رقم هوية الزوجيه','هويه الزوجه','رقم هويه الزوجه'])||'').trim().replace(/\.0$/,'');
-const familyType=String(findCell(r,['نوع الأسرة','نوع الاسرة','نوع الاسره','تصنيف الأسرة','تصنيف الاسرة','تصنيف الاسره','فئة الأسرة','فئة الاسرة','فئة الاسره','حالة الأسرة','حالة الاسرة','حالة الاسره','نوع المستفيد','حالة المستفيد','تصنيف المستفيد','النوع','الفئه','الفئة','التصنيف','الحاله','الحالة'])||'').trim();
-const membersRaw=findCell(r,['عدد الأفراد','عدد الافراد','عدد الافراده','عدد افراد الأسرة','عدد افراد الاسرة','عدد افراد الاسره','عدد أفراد الأسرة','عدد افراد الاسره','عدد الاعضاء','عدد الأعضاء','عدد اعضاء الأسرة','عدد اعضاء الاسره','العدد','عدد','عدد الاشخاص','عدد الأشخاص','عدد الاشخاص','عدد افراد','عدد أفراد','عدد الأفراد الكلي','عدد افراد الكلي','عدد افراد العائله','عدد أفراد العائلة','عدد افراد العائلة']);
+const name=String(findCell(r,[
+'اسم رب الأسرة','اسم رب الاسرة','اسم رب الاسره',
+'اسم الأسرة','اسم الاسرة','اسم الاسره',
+'الاسم','اسم'
+])||'').trim();
+const id=String(findCell(r,[
+'هوية رب الأسرة','هوية رب الاسرة','هوية رب الاسره',
+'رقم هوية رب الأسرة','رقم هوية رب الاسرة',
+'رقم الهوية','هوية الزوج','الهوية','رقم الهويه','هويه'
+])||'').trim().replace(/\.0$/,'');
+const wifeName=String(findCell(r,[
+'اسم الزوجة','اسم الزوجه','اسم الزوجيه',
+'زوجة رب الأسرة','زوجه رب الاسره','زوجة'
+])||'').trim();
+const wifeId=String(findCell(r,[
+'هوية الزوجة','هوية الزوجه','هوية الزوجيه',
+'رقم هوية الزوجة','رقم هوية الزوجه',
+'هويه الزوجه','رقم هويه الزوجه'
+])||'').trim().replace(/\.0$/,'');
+const familyType=String(findCell(r,[
+'نوع الأسرة','نوع الاسرة','نوع الاسره',
+'تصنيف الأسرة','تصنيف الاسرة','تصنيف الاسره',
+'فئة الأسرة','فئة الاسرة','فئة الاسره',
+'حالة الأسرة','حالة الاسرة','حالة الاسره',
+'نوع المستفيد','حالة المستفيد','تصنيف المستفيد',
+'النوع','الفئه','الفئة','التصنيف','الحاله','الحالة'
+])||'').trim();
+const membersRaw=findCell(r,[
+'عدد الأفراد','عدد الافراد','عدد الافراده',
+'عدد افراد الأسرة','عدد افراد الاسرة','عدد افراد الاسره',
+'عدد أفراد الأسرة','عدد افراد الاسره',
+'عدد الاعضاء','عدد الأعضاء','عدد اعضاء الأسرة','عدد اعضاء الاسره',
+'العدد','عدد','عدد الاشخاص','عدد الأشخاص','عدد الاشخاص',
+'عدد افراد','عدد أفراد','عدد الأفراد الكلي','عدد افراد الكلي',
+'عدد افراد العائله','عدد أفراد العائلة','عدد افراد العائلة'
+]);
 let members='1';
 if(membersRaw!=='' && membersRaw!==null && membersRaw!==undefined){
 const parsed=parseInt(String(membersRaw).replace(/[^\d]/g,''),10);
@@ -414,15 +490,33 @@ if(!isNaN(parsed) && parsed>0){
 members=String(parsed);
 }
 }
-const location=String(findCell(r,['عنوان السكن الأصلي','عنوان السكن الاصلي','عنوان السكن الاصلى','عنوان السكن','مكان الإيواء','مكان الايواء','مكان الايوا','رقم الخيمة','رقم الخيمه','الخيمة','الخيمه','الموقع','العنوان'])||'').trim();
-const phone=String(findCell(r,['رقم الجوال','رقم الجوال','رقم الجوال','الجوال','الهاتف','رقم الهاتف','رقم التلفون','جوال','هاتف','موبايل','رقم الموبايل','التلفون'])||'').trim();
+const location=String(findCell(r,[
+'عنوان السكن الأصلي','عنوان السكن الاصلي','عنوان السكن الاصلى',
+'عنوان السكن','مكان الإيواء','مكان الايواء','مكان الايوا',
+'رقم الخيمة','رقم الخيمه','الخيمة','الخيمه','الموقع','العنوان'
+])||'').trim();
+const phone=String(findCell(r,[
+'رقم الجوال','الجوال','الهاتف','رقم الهاتف','رقم التلفون',
+'جوال','هاتف','موبايل','رقم الموبايل','التلفون'
+])||'').trim();
 if(!name||!id){skipped++;continue}
 const existing=families.find(f=>f.id===id||(wifeId&&f.wifeId===wifeId));
 if(existing){
-Object.assign(existing,{name,id,wifeName:wifeName||existing.wifeName,wifeId:wifeId||existing.wifeId,familyType:familyType||existing.familyType,members,location,phone});
+Object.assign(existing,{
+name,id,
+wifeName:wifeName||existing.wifeName,
+wifeId:wifeId||existing.wifeId,
+familyType:familyType||existing.familyType,
+members,
+location,
+phone
+});
 updated++;
 }else{
-families.push({key:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),name,id,wifeName,wifeId,familyType,members,location,phone,notes:''});
+families.push({
+key:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),
+name,id,wifeName,wifeId,familyType,members,location,phone,notes:''
+});
 added++;
 }
 }
@@ -432,7 +526,7 @@ let msg=`✅ اكتمل الاستيراد بنجاح:\n`;
 msg+=`• تمت إضافة ${added} أسرة جديدة\n`;
 msg+=`• تم تحديث ${updated} أسرة موجودة\n`;
 if(skipped>0) msg+=`• تم تجاوز ${skipped} صف (لا يوجد اسم أو رقم هوية)\n`;
-msg+=`\n📊 الإحصائيات الحالية:\n`;
+msg+=`\n الإحصائيات الحالية:\n`;
 msg+=`• عدد الأسر الأرمال: ${families.filter(f=>(f.familyType||'').includes('أرملة')).length}\n`;
 msg+=`• عدد الأسر المطلقة: ${families.filter(f=>(f.familyType||'').includes('مطلقة')).length}\n`;
 msg+=`• طفل يراس أسرة: ${families.filter(f=>(f.familyType||'').includes('طفل')).length}\n`;
@@ -466,7 +560,24 @@ function deleteUser(name){if(name===currentUser){alert('لا يمكنك حذف �
 function go(page){document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));render(page)}
 function csvDownload(filename,rows){const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();URL.revokeObjectURL(a.href)}
 function exportFamilies(){csvDownload('أرشيف-الأسر.csv',[['اسم رب الأسرة','هوية رب الأسرة','اسم الزوجة','هوية الزوجة','نوع الأسرة','عدد الأفراد','عنوان السكن الأصلي','الجوال','ملاحظات'],...families.map(f=>[f.name,f.id,f.wifeName||'',f.wifeId,f.familyType||'',f.members,f.location,f.phone,f.notes])])}
-function exportFamiliesExcel(){if(!families.length){alert('لا توجد بيانات لتصديرها.');return}const exportData=families.map(f=>({'اسم رب الأسرة':f.name||'','هوية رب الأسرة':f.id||'','اسم الزوجة':f.wifeName||'','هوية الزوجة':f.wifeId||'','نوع الأسرة':f.familyType||'','الأفراد':f.members||'','عنوان السكن الأصلي':f.location||''}));const ws=XLSX.utils.json_to_sheet(exportData);ws['!cols']=[{wch:25},{wch:15},{wch:25},{wch:15},{wch:20},{wch:10},{wch:30}];const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'أرشيف الأسر');const fileName=`أرشيف-الأسر-${new Date().toISOString().slice(0,10)}.xlsx`;XLSX.writeFile(wb,fileName)}
+function exportFamiliesExcel(){
+if(!families.length){alert('لا توجد بيانات لتصديرها.');return}
+const exportData=families.map(f=>({
+'اسم رب الأسرة':f.name||'',
+'هوية رب الأسرة':f.id||'',
+'اسم الزوجة':f.wifeName||'',
+'هوية الزوجة':f.wifeId||'',
+'نوع الأسرة':f.familyType||'',
+'الأفراد':f.members||'',
+'عنوان السكن الأصلي':f.location||''
+}));
+const ws=XLSX.utils.json_to_sheet(exportData);
+ws['!cols']=[{wch:25},{wch:15},{wch:25},{wch:15},{wch:20},{wch:10},{wch:30}];
+const wb=XLSX.utils.book_new();
+XLSX.utils.book_append_sheet(wb,ws,'أرشيف الأسر');
+const fileName=`أرشيف-الأسر-${new Date().toISOString().slice(0,10)}.xlsx`;
+XLSX.writeFile(wb,fileName);
+}
 function exportAids(){csvDownload('سجل-المساعدات.csv',[['اسم الأسرة','هوية رب الأسرة','الهوية المرتبطة','نوع المساعدة','التاريخ','الكمية','الحالة','ملاحظات'],...aids.map(a=>{const f=families.find(x=>x.key===a.familyId)||{};return [f.name,f.id,a.identity,a.type,a.date,a.qty,a.status,a.notes]})])}
 </script>
 </body>
